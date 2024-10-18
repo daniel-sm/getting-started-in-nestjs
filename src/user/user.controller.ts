@@ -4,6 +4,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UserEntity } from './user.entity';
+import { ListUsersDTO } from './dto/list-users.dto';
 
 @Controller('/users')
 export class UserController {
@@ -21,12 +22,18 @@ export class UserController {
 
     return {
       message: 'user created successfully!',
-      id: userEntity.id,
+      user: new ListUsersDTO(userEntity.id, userEntity.name),
     };
   }
 
   @Get()
   async listUsers() {
-    return this.userRepository.list();
+    const savedUsers = await this.userRepository.list();
+
+    const usersList = savedUsers.map(
+      (user) => new ListUsersDTO(user.id, user.name),
+    );
+
+    return usersList;
   }
 }
