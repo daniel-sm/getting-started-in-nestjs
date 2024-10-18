@@ -8,6 +8,7 @@ import {
   IsPositive,
   IsString,
   IsUrl,
+  IsUUID,
   MaxLength,
   Min,
   ValidateNested,
@@ -36,6 +37,10 @@ export class ProductImagesDTO {
 }
 
 export class CreateProductDTO {
+
+  @IsUUID()
+  userId: string;
+
   @IsString()
   @IsNotEmpty()
   name: string;
