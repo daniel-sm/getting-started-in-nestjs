@@ -37,7 +37,6 @@ export class ProductImagesDTO {
 }
 
 export class CreateProductDTO {
-
   @IsUUID()
   userId: string;
 
