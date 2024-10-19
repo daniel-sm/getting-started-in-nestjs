@@ -10,6 +10,6 @@ export class CreateUserDTO {
   @IsUniqueEmail({ message: 'Já existe usuário com este email' })
   email: string;
 
-  @MinLength(6, { message: 'A senha precisa ter pelo menos 8 caracteres' })
+  @MinLength(8, { message: 'A senha precisa ter pelo menos 8 caracteres' })
   password: string;
 }
