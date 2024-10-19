@@ -1,0 +1,27 @@
+### USER ROUTES ####
+
+GET http://localhost:3000/users
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Jeremias",
+  "email": "jeremias@email.com",
+  "password": "12345678"
+}
+
+###
+
+PUT http://localhost:3000/users/a1de99db-4a1e-44bb-bb3e-f569b3679128
+Content-Type: application/json
+
+{
+  "name": "Jeremias Paulo"
+}
+
+###
+
+DELETE http://localhost:3000/users/a1de99db-4a1e-44bb-bb3e-f569b3679128
