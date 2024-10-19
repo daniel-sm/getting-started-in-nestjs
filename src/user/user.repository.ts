@@ -12,7 +12,7 @@ export class UserRepository {
       throw new Error('User does not exist');
     }
 
-    return possibleUser
+    return possibleUser;
   }
 
   async save(user: UserEntity) {
@@ -30,7 +30,7 @@ export class UserRepository {
   }
 
   async update(id: string, updateData: Partial<UserEntity>) {
-    const user = this.searchById(id)
+    const user = this.searchById(id);
 
     Object.entries(updateData).forEach(([key, value]) => {
       if (key === 'id') {
@@ -43,12 +43,10 @@ export class UserRepository {
   }
 
   async remove(id: string) {
-    const user = this.searchById(id)
+    const user = this.searchById(id);
 
-    this.users = this.users.filter(
-      (savedUser) => savedUser.id !== id
-    )
+    this.users = this.users.filter((savedUser) => savedUser.id !== id);
 
-    return user
+    return user;
   }
 }
