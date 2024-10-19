@@ -26,8 +26,8 @@ export class ProductController {
     this.productRepository.save(productEntity);
 
     return {
-      data: productData,
-      status: 'product created successfully!',
+      message: 'product created successfully!',
+      product: productEntity,
     };
   }
 
